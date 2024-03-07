@@ -20,7 +20,7 @@
                       jcr:primaryType="nt:unstructured"
                       sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                       name="./noTheme"
-                      text="Exclude theme while rendering form"
+                      text="Exclude theme configured in form"
                       fieldDescription="If this option is checked, theme from forms server will not be loaded"
                       uncheckedValue="{Boolean}false"
                       checked="{Boolean}true"
