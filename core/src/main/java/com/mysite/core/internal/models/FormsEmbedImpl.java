@@ -4,6 +4,7 @@ import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
 import com.drew.lang.annotations.Nullable;
 import com.mysite.core.models.FormsEmbed;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
@@ -27,9 +28,25 @@ public class FormsEmbedImpl implements FormsEmbed {
   @Nullable
   protected String formsUrl;
 
+  @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+  @Nullable
+  protected Boolean noTheme;
+
 
   @Override
   public String getFormsUrl() {
-    return formsUrl;
+    return prepareFormsUrl();
+  }
+
+  private String prepareFormsUrl() {
+    String url = formsUrl;
+    if (Boolean.TRUE.equals(noTheme) && StringUtils.isNotEmpty(formsUrl)) {
+      if (formsUrl.contains("?")) {
+        url = formsUrl + "&notheme=true";
+      } else {
+        url = formsUrl + "?notheme=true";
+      }
+    }
+    return url;
   }
 }
