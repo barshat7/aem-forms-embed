@@ -4,6 +4,8 @@ import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
 import com.drew.lang.annotations.Nullable;
 import com.mysite.core.models.FormsEmbed;
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.Exporter;
@@ -32,11 +34,27 @@ public class FormsEmbedImpl implements FormsEmbed {
   @Nullable
   protected Boolean noTheme;
 
+  @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL, name = "hiddenFields")
+  @Nullable
+  protected String[] hiddenFields;
+
 
   @Override
   public String getFormsUrl() {
     return prepareFormsUrl();
   }
+
+  @Override
+  public String getHiddenDataValueAttributes() {
+    StringBuilder result = new StringBuilder();
+    if (hiddenFields != null) {
+      for (String kv : hiddenFields) {
+        result.append(kv).append(";");
+      }
+    }
+    return result.toString();
+  }
+
 
   private String prepareFormsUrl() {
     String url = formsUrl;
