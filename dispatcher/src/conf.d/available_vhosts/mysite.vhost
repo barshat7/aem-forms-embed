@@ -27,9 +27,9 @@ Include conf.d/variables/custom.vars
         ProxyPass ${FORMS_ENDPOINT}/etc.clientlibs/core/fd
         ProxyPassReverse ${FORMS_ENDPOINT}/etc.clientlibs/core/fd
     </Location>
-      <Location "/etc.clientlibs/formsapp">
-        ProxyPass ${FORMS_ENDPOINT}/etc.clientlibs/formsapp
-        ProxyPassReverse ${FORMS_ENDPOINT}/etc.clientlibs/formsapp
+      <Location "/etc.clientlibs/projectB">
+        ProxyPass ${FORMS_ENDPOINT}/etc.clientlibs/projectB
+        ProxyPassReverse ${FORMS_ENDPOINT}/etc.clientlibs/projectB
     </Location>
 </IfModule>
 
