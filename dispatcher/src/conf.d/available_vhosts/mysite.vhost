@@ -22,14 +22,17 @@ Include conf.d/variables/custom.vars
         ProxyPass ${FORMS_ENDPOINT}/adobe/forms/af
         ProxyPassReverse ${FORMS_ENDPOINT}/adobe/forms/af
         RequestHeader set Referer ${FORMS_ENDPOINT}
+		RewriteEngine Off
     </Location>
     <Location "/etc.clientlibs/core/fd">
         ProxyPass ${FORMS_ENDPOINT}/etc.clientlibs/core/fd
         ProxyPassReverse ${FORMS_ENDPOINT}/etc.clientlibs/core/fd
+		RewriteEngine Off
     </Location>
       <Location "/etc.clientlibs/projectB">
         ProxyPass ${FORMS_ENDPOINT}/etc.clientlibs/projectB
         ProxyPassReverse ${FORMS_ENDPOINT}/etc.clientlibs/projectB
+		RewriteEngine Off
     </Location>
 </IfModule>
 
