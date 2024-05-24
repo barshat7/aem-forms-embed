@@ -10,4 +10,6 @@ public interface FormsEmbed extends Component {
   String getFormsUrl();
 
   String getHiddenDataValueAttributes();
+
+  String getSubmissionRedirectUrl();
 }

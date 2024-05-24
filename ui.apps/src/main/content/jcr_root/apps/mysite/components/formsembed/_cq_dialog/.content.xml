@@ -16,6 +16,11 @@
                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                         fieldLabel="Forms URL"
                         name="./formsUrl"/>
+                    <submissionRedirectUrl
+                      jcr:primaryType="nt:unstructured"
+                      sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                      fieldLabel="Submission Redirect URL"
+                      name="./submissionRedirectUrl"/>
                     <noTheme
                       jcr:primaryType="nt:unstructured"
                       sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"

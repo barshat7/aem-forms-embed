@@ -34,6 +34,10 @@ public class FormsEmbedImpl implements FormsEmbed {
   @Nullable
   protected Boolean noTheme;
 
+  @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+  @Nullable
+  protected String submissionRedirectUrl;
+
   @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL, name = "hiddenFields")
   @Nullable
   protected String[] hiddenFields;
@@ -53,6 +57,11 @@ public class FormsEmbedImpl implements FormsEmbed {
       }
     }
     return result.toString();
+  }
+
+  @Override
+  public String getSubmissionRedirectUrl() {
+    return submissionRedirectUrl;
   }
 
 
